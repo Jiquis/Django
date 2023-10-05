@@ -63,6 +63,24 @@ class Main(QMainWindow):
             self.ButtonGroup.addButton(cbxImagen2)#Se agrega al grupo de botones el RadioButton con la imagen numero 2
             self.ButtonGroup.buttonClicked.connect(on_button_clicked)
             #self.ButtonGroup.buttonClicked.connect(lambda button: crear_principal(self, button))
+            
+            ###################################### IMAGEN EJECUTABLE DEL PROGRAMA #############################################
+            imgPrincipal = QLabel(self)
+            if cbxTriangulo.isChecked(True):
+                pxmpPrincipal = QPixmap('/home/luis-covarrubias/Imágenes/Triangulo.png')
+            elif cbxCuadrado.isChecked(True):
+                pxmpPrincipal = QPixmap('/home/luis-covarrubias/Imágenes/Cuadrado.jpeg')
+            elif cbxPentagono.isChecked(True):
+                pxmpPrincipal = QPixmap('/home/luis-covarrubias/Imágenes/Pentagono.png')
+            elif cbxImagen1.isChecked(True):
+                pxmpPrincipal = QPixmap('/home/luis-covarrubias/Imágenes/Cristiano.jgep')
+            elif cbxImagen2.isChecked(True):
+                pxmpPrincipal = QPixmap('/home/luis-covarrubias/Imágenes/Messi.jpeg')
+            imgPrincipal.setPixmap(pxmpPrincipal)
+            imgPrincipal.setGeometry(25, 403, 400, 400)
+            imgPrincipal.setScaledContents(True) #La imagen se acomoda al tama;o del label en el que se encuentre
+            imgPrincipal.setStyleSheet('border: 2px solid black;') #Se crea un borde alrededor de la imagen
+            
         def CrearImagenes():
 
             imgTriangulo = QLabel(self) #Se crea un label que se utilizara para contener las imagenes
@@ -97,17 +115,6 @@ class Main(QMainWindow):
             imgImagen2.setStyleSheet('border: 2px solid black;')
 
 ###################################### IMAGEN EJECUTABLE DEL PROGRAMA #############################################
-        '''
-        def crear_principal(self, button):
-            imgPrincipal = QLabel(self)
-            if(button.text == 'Triangulo'):
-                pxmpPrincipal = QPixmap('/home/luis-covarrubias/Imágenes/Triangulo.png')
-                imgPrincipal.setPixmap(pxmpPrincipal)
-            imgPrincipal.setGeometry(25, 243, 600, 600)
-            imgPrincipal.setScaledContents(True) #La imagen se acomoda al tama;o del label en el que se encuentre
-            imgPrincipal.setStyleSheet('border: 2px solid black;') #Se crea un borde alrededor de la imagen
-
-        '''
         
         def on_button_clicked(button):
             print(f"Botón clickeado: {button.text()}")
